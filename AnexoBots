@@ -1,0 +1,50 @@
+$ npm install --save discord.js
+const Discord = require("discord.js");
+const client = new Discord.Client();
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+client.on('message', msg => {
+  if (msg.content === 'ping') {
+    msg.reply('Pong!');
+  }
+});
+
+client.login('NTU5MzA5ODkxNTkyNzgxODI0.D3lFDw.9H_z2GCw-XjhQY9ltnCw0_VLAiI');
+$ node bot.js
+// Send a basic message
+channel.send('hello!')
+  .then(message => console.log(`Sent message: ${message.content}`))
+  .catch(console.error);
+// Send a remote file
+channel.send({
+  files: ['https://cdn.discordapp.com/icons/222078108977594368/6e1019b3179d71046e463a75915e7244.png?size=2048']
+})
+  .then(console.log)
+  .catch(console.error);
+// Send a local file
+channel.send({
+  files: [{
+    attachment: 'entire/path/to/file.jpg',
+    name: 'file.jpg'
+  }]
+})
+  .then(console.log)
+  .catch(console.error);
+// Send an embed with a local image inside
+channel.send('This is an embed', {
+  embed: {
+    thumbnail: {
+         url: 'attachment://file.jpg'
+      }
+   },
+   files: [{
+      attachment: 'entire/path/to/file.jpg',
+      name: 'file.jpg'
+   }]
+})
+  .then(console.log)
+  .catch(console.error);
+ 
